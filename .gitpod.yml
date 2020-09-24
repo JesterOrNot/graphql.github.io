@@ -1,0 +1,11 @@
+ports:
+  - port: 8444
+    onOpen: ignore
+  - port: 8080
+    onOpen: open-preview
+tasks:
+  - init: |
+      npm install
+      npm run build
+    command: npm start
+  - command: gp forward-port 8444 8080
